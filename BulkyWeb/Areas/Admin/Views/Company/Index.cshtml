@@ -1,0 +1,31 @@
+﻿<div class="card shadow border-0 mt-4 mb-5">
+    <div class="card-header bg-secondary bg-gradient py-3">
+        <div class="row text-center ">
+            <div class="col-12">
+                <h1 class="text-white py-2">Company List</h1>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row pb-2 mb-1">
+            <div class="col-12 text-end">
+                <a class="btn btn-primary btn-outline-success rounded text-white py-3" asp-controller="Company" asp-action="Upsert"> <i class="bi bi-patch-plus"></i> Create new Category</a>
+            </div>
+        </div>
+        <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Phone Number</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/js/Company.js"></script>
+}

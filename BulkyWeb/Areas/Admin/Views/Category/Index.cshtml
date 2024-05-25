@@ -1,0 +1,45 @@
+﻿@model List<Category>
+
+<div class="card shadow border-0 mt-4 mb-5">
+    <div class="card-header bg-secondary bg-gradient py-3">
+        <div class="row text-center ">
+            <div class="col-12">
+                <h1 class="text-white py-2">Category List</h1>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row pb-2 mb-1">
+            <div class="col-12 text-end">
+                <a class="btn btn-primary btn-outline-success rounded text-white py-3" asp-controller="Category" asp-action="Create"> <i class="bi bi-patch-plus"></i> Create new Category</a>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Category Order</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Category item in Model.OrderBy(temp => temp.DisplayOrder))
+                {
+                    <tr>
+
+                        <td>@item.Name</td>
+                        <td>@item.DisplayOrder</td>
+                        <td>
+                            <div class="btn-group w-75" role="group">
+                                <a asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2 text-white"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <a asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2 text-white"><i class="bi bi-trash3-fill"></i> Delete</a>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

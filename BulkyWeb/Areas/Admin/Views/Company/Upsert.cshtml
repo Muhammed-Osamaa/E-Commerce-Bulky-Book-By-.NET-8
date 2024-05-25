@@ -1,0 +1,84 @@
+﻿@model Company
+
+<div class="card shadow border-0 mt-4 ">
+    <div class="card-header bg-secondary bg-gradient py-3 ">
+        <div class="row text-center ">
+            <div class="col-12">
+                <h1 class="text-white py-2">@(Model.CompanyId != 0 ? "Update" : "Create") Company</h1>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="@Model.CompanyId" hidden />
+
+            <div class="row">
+                <div class="col-10">
+                    <div class="border p-3">
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Name" class="form-control border-0 shadow" />
+                            <label asp-for="Name" class="ms-2"></label>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="PhoneNumber" class="form-control border-0 shadow" />
+                            <label asp-for="PhoneNumber" class="ms-2"></label>
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="StreedAddress" class="form-control border-0 shadow" />
+                            <label asp-for="StreedAddress" class="ms-2"></label>
+                            <span asp-validation-for="StreedAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="City" class="form-control border-0 shadow" />
+                            <label asp-for="City" class="ms-2"></label>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="State" class="form-control border-0 shadow" />
+                            <label asp-for="State" class="ms-2"></label>
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="PostalCode" class="form-control border-0 shadow" />
+                            <label asp-for="PostalCode" class="ms-2"></label>
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="row mt-4">
+                            @if (Model.CompanyId!= 0)
+                            {
+                                <div class="col-6 col-md-3">
+                                    <button type="submit" class="btn btn-primary text-white  btn-outline-success form-control"> Update</button>
+
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-6 col-md-3">
+                                    <button type="submit" class="btn btn-primary text-white  btn-outline-success form-control"> Create <i class="bi bi-plus-circle-fill"></i> </button>
+
+                                </div>
+                            };
+                            <div class="col-6 col-md-3">
+                                <a class="btn btn-secondary  btn-outline-success text-white form-control" asp-controller="Company" asp-action="Index">Back<i class="bi bi-arrow-return-left"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section scripts {
+
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    };
+}
