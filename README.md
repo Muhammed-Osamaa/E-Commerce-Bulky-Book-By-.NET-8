@@ -1,6 +1,6 @@
 # E-Commerce Book Booking System
 
-This project is an E-commerce application for booking books
+This project is an E-commerce application for booking books.
 
 ## Features
 
